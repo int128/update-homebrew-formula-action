@@ -39,4 +39,5 @@ jobs:
       - name: e2e-test
         uses: ./
         with:
-          name: foo
+          path: tests/fixtures/*.rb
+      - run: git diff
