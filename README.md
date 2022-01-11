@@ -1,6 +1,8 @@
-# typescript-action [![ts](https://github.com/int128/typescript-action/actions/workflows/ts.yaml/badge.svg)](https://github.com/int128/typescript-action/actions/workflows/ts.yaml)
+# update-homebrew-formula-action [![ts](https://github.com/int128/update-homebrew-formula-action/actions/workflows/ts.yaml/badge.svg)](https://github.com/int128/update-homebrew-formula-action/actions/workflows/ts.yaml)
 
-This is a template of TypeScript Action.
+This is an action to update a formula of Homebrew.
+
+**Status:** work in progress
 
 
 ## Getting Started
@@ -9,25 +11,27 @@ To run this action:
 
 ```yaml
 jobs:
-  build:
+  update:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: int128/typescript-action@v1
+      - uses: int128/update-homebrew-formula-action@v1
         with:
-          name: hello
+          path: foo.rb
+      - run: git diff
 ```
+
+You can see the changed formula if a new release is available.
 
 
 ## Inputs
 
 | Name | Default | Description
 |------|----------|------------
-| `name` | (required) | example input
+| `path` | (required) | Path to formula file(s)
+| `token` | `github.token` | GitHub token
 
 
 ## Outputs
 
-| Name | Description
-|------|------------
-| `example` | example output
+None.
