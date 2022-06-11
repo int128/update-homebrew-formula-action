@@ -16,7 +16,7 @@
     "node-fetch": "2.6.7"
   },
   "devDependencies": {
-    "@tsconfig/node16": "1.0.2",
+    "@tsconfig/node16": "1.0.3",
     "@types/jest": "27.5.2",
     "@types/node": "16.11.39",
     "@types/node-fetch": "2.6.1",
