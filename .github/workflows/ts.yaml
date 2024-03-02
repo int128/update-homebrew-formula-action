@@ -7,6 +7,7 @@ on:
       - src/**
       - tests/**
       - '*.json'
+      - '*.lock'
       - action.yaml
       - .github/workflows/ts.yaml
   pull_request:
@@ -15,6 +16,7 @@ on:
       - src/**
       - tests/**
       - '*.json'
+      - '*.lock'
       - action.yaml
       - .github/workflows/ts.yaml
 
@@ -26,13 +28,12 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: yarn
-      - run: yarn
-      - run: yarn lint
-      - run: yarn format-check
-      - run: yarn test
-      - run: yarn build
-      - run: yarn package
+      - run: corepack enable pnpm
+      - run: pnpm i
+      - run: pnpm lint
+      - run: pnpm format-check
+      - run: pnpm test
+      - run: pnpm build
 
       - name: e2e-test
         uses: ./
