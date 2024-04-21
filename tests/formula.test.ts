@@ -1,6 +1,6 @@
 import { promises as fs } from 'fs'
-import { Asset } from '../src/types'
-import { parseFormula } from '../src/formula'
+import { Asset } from '../src/types.js'
+import { parseFormula } from '../src/formula.js'
 
 test('parse formula', async () => {
   const content = (await fs.readFile(`${__dirname}/fixtures/kubelogin.rb`)).toString()
