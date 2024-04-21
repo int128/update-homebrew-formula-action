@@ -2,9 +2,9 @@ import * as core from '@actions/core'
 import * as github from '@actions/github'
 import * as glob from '@actions/glob'
 import { promises as fs } from 'fs'
-import { parseFormula, updateFormula } from './formula'
-import { findAssetUpdates } from './release'
-import { Octokit } from './types'
+import { parseFormula, updateFormula } from './formula.js'
+import { findAssetUpdates } from './release.js'
+import { Octokit } from './types.js'
 
 interface Inputs {
   path: string

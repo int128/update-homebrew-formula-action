@@ -1,5 +1,5 @@
 import * as core from '@actions/core'
-import { Octokit, Repository, Asset, Update } from './types'
+import { Octokit, Repository, Asset, Update } from './types.js'
 
 export const findAssetUpdates = async (octokit: Octokit, assets: Asset[]): Promise<Update[]> => {
   const updates: Update[] = []

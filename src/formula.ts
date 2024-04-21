@@ -1,5 +1,5 @@
-import { sha256Content } from './sha256'
-import { Asset, Update } from './types'
+import { sha256Content } from './sha256.js'
+import { Asset, Update } from './types.js'
 
 const urlPattern =
   /url +"(?<url>https:\/\/github.com\/(?<owner>.+?)\/(?<repo>.+?)\/releases\/download\/(?<tag>.+?)\/(?<path>.+?))"/g
