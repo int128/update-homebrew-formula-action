@@ -35,7 +35,7 @@ jobs:
       - name: e2e-test
         uses: ./
         with:
-          path: tests/fixtures/*.rb
+          path: tests/fixtures/kubelogin.rb
           version: v1.25.0
       - run: git diff
 
