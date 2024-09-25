@@ -36,6 +36,7 @@ jobs:
         uses: ./
         with:
           path: tests/fixtures/*.rb
+          version: v1.25.0
       - run: git diff
 
   generate:
