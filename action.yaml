@@ -1,14 +1,13 @@
 name: update-homebrew-formula-action
-description: update a formula of Homebrew
+description: Update a Homebrew formula to the desired version
 
 inputs:
   path:
-    description: glob path
+    description: Glob pattern to formula(s)
     required: true
-  token:
-    description: GitHub token
+  version:
+    description: Desired version of the formula(s)
     required: true
-    default: ${{ github.token }}
 
 runs:
   using: 'node20'

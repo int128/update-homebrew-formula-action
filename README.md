@@ -1,36 +1,34 @@
 # update-homebrew-formula-action [![ts](https://github.com/int128/update-homebrew-formula-action/actions/workflows/ts.yaml/badge.svg)](https://github.com/int128/update-homebrew-formula-action/actions/workflows/ts.yaml)
 
-This is an action to update a formula of Homebrew.
-
-**Status:** work in progress
-
+This is an action to update a Homebrew formula to the desired version.
 
 ## Getting Started
 
-To run this action:
+To update a formula,
 
 ```yaml
+name: update
+
 jobs:
-  update:
+  formula:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: int128/update-homebrew-formula-action@v1
+      - uses: actions/checkout@v4
+      - uses: int128/update-homebrew-formula-action@v2
         with:
-          path: foo.rb
-      - run: git diff
+          path: example.rb
+          version: v1.0.0
+      - uses: int128/update-generated-files-action@v2
 ```
 
 You can see the changed formula if a new release is available.
 
-
 ## Inputs
 
-| Name | Default | Description
-|------|----------|------------
-| `path` | (required) | Path to formula file(s)
-| `token` | `github.token` | GitHub token
-
+| Name      | Default    | Description                       |
+| --------- | ---------- | --------------------------------- |
+| `path`    | (required) | Glob pattern to formula(s)        |
+| `version` | (required) | Desired version of the formula(s) |
 
 ## Outputs
 
