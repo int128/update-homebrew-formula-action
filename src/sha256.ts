@@ -1,5 +1,5 @@
 import * as core from '@actions/core'
-import fetch from 'node-fetch'
+import { HttpClient } from '@actions/http-client'
 import { createHash } from 'crypto'
 import { pipeline } from 'node:stream'
 import { promisify } from 'node:util'
@@ -7,14 +7,11 @@ import { promisify } from 'node:util'
 const streamPipeline = promisify(pipeline)
 
 export const sha256Content = async (url: string): Promise<string> => {
-  core.info(`downloading ${url}`)
-  const response = await fetch(url)
-  core.info(`got status ${response.status}`)
-  if (response.body === null) {
-    throw new Error(`got status ${response.statusText} (response.body === null)`)
-  }
-
+  const client = new HttpClient()
+  core.info(`Downloading ${url}`)
+  const response = await client.get(url)
+  core.info(`Got status ${response.message.statusCode} ${response.message.statusMessage}`)
   const h = createHash('sha256')
-  await streamPipeline(response.body, h)
+  await streamPipeline(response.message, h)
   return h.digest('hex')
 }
