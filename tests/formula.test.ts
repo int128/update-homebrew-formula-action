@@ -1,3 +1,4 @@
+import { test, expect } from 'vitest'
 import { promises as fs } from 'fs'
 import { Asset } from '../src/types.js'
 import { parseFormula } from '../src/formula.js'
