@@ -1,8 +1,8 @@
-import * as core from '@actions/core'
-import { HttpClient } from '@actions/http-client'
-import { createHash } from 'crypto'
+import { createHash } from 'node:crypto'
 import { pipeline } from 'node:stream'
 import { promisify } from 'node:util'
+import * as core from '@actions/core'
+import { HttpClient } from '@actions/http-client'
 
 const streamPipeline = promisify(pipeline)
 

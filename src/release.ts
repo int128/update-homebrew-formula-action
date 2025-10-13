@@ -1,5 +1,5 @@
 import * as core from '@actions/core'
-import { Asset, Update } from './types.js'
+import type { Asset, Update } from './types.js'
 
 export const findAssetUpdates = (version: string, assets: Asset[]): Update[] => {
   const updates: Update[] = []
